@@ -16,7 +16,7 @@ npm install --save-dev gulp-pleeease
 var gulp = require('gulp');
 var please = require('gulp-please');
 
-gulp.task('screens', function () {
+gulp.task('css', function () {
   gulp.src('./public/*.css')
   .pipe(please(options))
   .pipe(rename({
