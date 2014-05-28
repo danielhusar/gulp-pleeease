@@ -6,13 +6,13 @@ See [pleeease](https://github.com/iamvdo/pleeease/) for documentation.
 
 ## Install
 
-```
+```bash
 npm install --save-dev gulp-pleeease
 ```
 
 ## Example
 
-```
+```javascript
 var gulp = require('gulp');
 var please = require('gulp-please');
 
