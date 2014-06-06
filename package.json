@@ -1,6 +1,6 @@
 {
   "name": "gulp-pleeease",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Postprocess CSS with ease.",
   "license": "MIT",
   "repository": "danielhusar/gulp-please",
