@@ -9,7 +9,7 @@ it('It should process data', function (cb) {
   }});
 
   stream.on('data', function(file){
-    assert.equal(file.contents.toString(), ' @media all{body{color:red;}a{color:blue;}}');
+    assert.equal(file.contents.toString(), '@media all{body{color:red;}a{color:blue;}}');
     cb();
   });
 
