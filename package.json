@@ -1,6 +1,6 @@
 {
   "name": "gulp-pleeease",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Postprocess CSS with ease.",
   "license": "MIT",
   "repository": "danielhusar/gulp-please",
@@ -28,7 +28,7 @@
   "dependencies": {
     "gulp-util": "~2.2.14",
     "through2": "~0.4.1",
-    "pleeease": "~0.3.0"
+    "pleeease": "~0.4.0"
   },
   "devDependencies": {
     "mocha": "^1.18.2"
