@@ -1,4 +1,4 @@
-# [gulp](http://gulpjs.com)-pleeease [![Build Status](https://secure.travis-ci.org/danielhusar/gulp-pleeease.svg?branch=master)](http://travis-ci.org/danielhusar/gulp-pleeease)
+# [gulp](http://gulpjs.com)-pleeease [![Build Status](https://secure.travis-ci.org/danielhusar/gulp-pleeease.svg?branch=master)](http://travis-ci.org/danielhusar/gulp-pleeease) ![dependencies](https://david-dm.org/danielhusar/gulp-pleeease.png)
 
 Gulp plugin for [pleeease](https://github.com/iamvdo/pleeease/)
 
