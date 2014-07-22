@@ -28,7 +28,7 @@ gulp.task('css', function () {
 
 ```
 
-## options
+## Options
 
 same as [pleeease](https://github.com/iamvdo/pleeease/#options)
 
