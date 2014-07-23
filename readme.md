@@ -14,7 +14,7 @@ npm install --save-dev gulp-pleeease
 
 ```javascript
 var gulp = require('gulp');
-var please = require('gulp-please');
+var please = require('gulp-pleeease');
 
 gulp.task('css', function () {
   gulp.src('./public/*.css')
