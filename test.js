@@ -8,7 +8,7 @@ it('It should process data', function (cb) {
     minifier: false
   }});
 
-  stream.on('data', function(file){
+  stream.on('data', function (file) {
     assert.equal(file.contents.toString(), '@media all{body{color:red;}a{color:blue;}}');
     cb();
   });
