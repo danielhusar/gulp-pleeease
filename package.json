@@ -26,9 +26,9 @@
     "pleeease"
   ],
   "dependencies": {
-    "gulp-util": "~2.2.20",
-    "through2": "~0.5.1",
-    "pleeease": "~0.4.1"
+    "gulp-util": "~3.0.0",
+    "through2": "~0.6.1",
+    "pleeease": "~0.4.4"
   },
   "devDependencies": {
     "mocha": "^1.18.2"
