@@ -25,7 +25,6 @@ gulp.task('css', function () {
   }))
   .pipe(gulp.dest('./public/'));
 });
-
 ```
 
 ## Options
