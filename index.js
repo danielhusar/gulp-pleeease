@@ -35,7 +35,7 @@ module.exports = function (opts) {
       file.contents = new Buffer(result.css || result);
 
       // apply source map to the chain
-      if (file.sourceMap && result.map) {
+      if (file.sourceMap && result.map && result.map.toString) {
         applySourceMap(file, result.map.toString());
       }
 

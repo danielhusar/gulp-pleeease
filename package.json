@@ -32,6 +32,7 @@
     "pleeease": "~0.4.4"
   },
   "devDependencies": {
+    "gulp-sourcemaps": "^1.1.1",
     "mocha": "^1.18.2"
   },
   "readmeFilename": "readme.md"
