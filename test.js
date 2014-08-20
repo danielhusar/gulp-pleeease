@@ -4,9 +4,11 @@ var gutil = require('gulp-util');
 var pleeease = require('./index.js');
 
 it('It should process data', function (cb) {
-  var stream = pleeease({optimizers: {
-    minifier: false
-  }});
+  var stream = pleeease({
+    optimizers: {
+      minifier: false,
+    },
+  });
 
   stream.on('data', function (file) {
     assert.equal(file.contents.toString(), '@media all{body{color:red;}a{color:blue;}}');

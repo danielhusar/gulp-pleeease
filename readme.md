@@ -27,6 +27,28 @@ gulp.task('css', function () {
 });
 ```
 
+## Source map support
+
+```javascript
+var gulp = require('gulp');
+var please = require('gulp-pleeease');
+var sourcemaps = require('gulp-sourcemaps');
+var sass = require('gulp-sass');
+
+gulp.task('css', function () {
+  gulp.src('./public/*.css')
+    .pipe(sourcemaps.init())
+      .pipe(sass())
+      .pipe(pleeease({
+        optimizers: {
+          minifier: false
+        }
+      }))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./public'));
+});
+```
+
 ## Options
 
 same as [pleeease](https://github.com/iamvdo/pleeease/#options)
