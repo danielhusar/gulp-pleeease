@@ -31,13 +31,13 @@ gulp.task('css', function () {
 
 ```javascript
 var gulp = require('gulp');
-var pleeease = require('gulp-pleeease');
+var please = require('gulp-pleeease');
 var sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('css', function () {
   gulp.src('./public/*.css')
     .pipe(sourcemaps.init())
-      .pipe(pleeease({
+      .pipe(please({
         optimizers: {
           minifier: false
         }
