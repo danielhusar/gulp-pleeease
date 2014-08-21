@@ -35,9 +35,10 @@ it('It should generate source maps', function (cb) {
   var write = sourcemaps.write();
   init.pipe(stream).pipe(write);
 
-  stream.on('data', function (file) {
+  write.on('data', function (file) {
     assert(file.contents.toString().match('@media all{body{color:red;}a{color:blue;}}'));
     assert(file.contents.toString().match('sourceMappingURL=data:application/json;base64'));
+    assert(file.contents.toString().match('eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxXQUFXLEtBQUssV0FBVSxBQUFjLENBQWIsQ0FBZSxZQUFXLENBQUMsQ0FBMUIiLCJmaWxlIjoic3R5bGUuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQG1lZGlhIGFsbHtib2R5e2NvbG9yOnJlZDt9fSBAbWVkaWEgYWxse2F7Y29sb3I6Ymx1ZTt9fSJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ'));
     cb();
   });
 
