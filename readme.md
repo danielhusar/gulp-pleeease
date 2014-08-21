@@ -17,13 +17,13 @@ var gulp = require('gulp');
 var please = require('gulp-pleeease');
 
 gulp.task('css', function () {
-  gulp.src('./public/*.css')
+  gulp.src('./src/*.css')
   .pipe(please(options))
   .pipe(rename({
     suffix: '.min',
     extname: '.css'
   }))
-  .pipe(gulp.dest('./public/'));
+  .pipe(gulp.dest('./dest'));
 });
 ```
 
@@ -35,7 +35,7 @@ var please = require('gulp-pleeease');
 var sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('css', function () {
-  gulp.src('./public/*.css')
+  gulp.src('./src/*.css')
     .pipe(sourcemaps.init())
       .pipe(please({
         optimizers: {
@@ -43,7 +43,7 @@ gulp.task('css', function () {
         }
       }))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./public'));
+    .pipe(gulp.dest('./dest'));
 });
 ```
 
