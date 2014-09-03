@@ -18,7 +18,7 @@ var please = require('gulp-pleeease');
 
 gulp.task('css', function () {
   gulp.src('./src/*.css')
-  .pipe(please(options))
+  .pipe(please())
   .pipe(rename({
     suffix: '.min',
     extname: '.css'
@@ -38,9 +38,7 @@ gulp.task('css', function () {
   gulp.src('./src/*.css')
     .pipe(sourcemaps.init())
       .pipe(please({
-        optimizers: {
-          minifier: false
-        }
+        minifier: false
       }))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./dest'));
