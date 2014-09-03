@@ -5,27 +5,27 @@ var sourcemaps = require('gulp-sourcemaps');
 var pleeease = require('./index.js');
 
 it('It should process data', function (cb) {
-  var stream = pleeease({
+  var please = pleeease({
     optimizers: {
       minifier: false,
     },
   });
-  stream.on('data', function (file) {
+  please.on('data', function (file) {
     assert.equal(file.contents.toString(), '@media all{body{color:red}a{color:blue}}');
     cb();
   });
 
-  stream.write(new gutil.File({
+  please.write(new gutil.File({
     base: __dirname,
     path: __dirname + '/style.css',
     contents: new Buffer('@media all{body{color:red;}} @media all{a{color:blue;}}')
   }));
 
-  stream.end();
+  please.end();
 });
 
 it('It should generate source maps', function (cb) {
-  var stream = pleeease({
+  var please = pleeease({
     optimizers: {
       minifier: false,
     },
@@ -33,7 +33,7 @@ it('It should generate source maps', function (cb) {
 
   var init = sourcemaps.init();
   var write = sourcemaps.write();
-  init.pipe(stream).pipe(write);
+  init.pipe(please).pipe(write);
 
   write.on('data', function (file) {
     assert.equal(file.sourceMap.mappings, 'AAAA,WAAW,KAAK,UAAU,AAAc,CAAb,CAAe,WAAW,CAAC,CAA1B');
@@ -46,7 +46,6 @@ it('It should generate source maps', function (cb) {
   init.write(new gutil.File({
     base: __dirname,
     path: __dirname + '/style.css',
-    sourceMap: '',
     contents: new Buffer('@media all{body{color:red;}} @media all{a{color:blue;}}')
   }));
 
