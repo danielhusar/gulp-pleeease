@@ -5,7 +5,9 @@ var sourcemaps = require('gulp-sourcemaps');
 var pleeease = require('./index.js');
 
 it('It should process data', function (cb) {
-  var please = pleeease();
+  var please = pleeease({
+    mqpacker: true
+  });
   please.on('data', function (file) {
     assert.equal(file.contents.toString(), '@media all{body{color:red}a{color:blue}}');
     cb();
@@ -21,7 +23,9 @@ it('It should process data', function (cb) {
 });
 
 it('It should generate source maps', function (cb) {
-  var please = pleeease();
+  var please = pleeease({
+    mqpacker: true
+  });
 
   var init = sourcemaps.init();
   var write = sourcemaps.write();
