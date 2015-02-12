@@ -29,7 +29,7 @@
     "gulp-util": "^3.0.1",
     "vinyl-sourcemaps-apply": "^0.1.4",
     "through2": "^0.6.3",
-    "pleeease": "^2.0.0"
+    "pleeease": "^3.0.0"
   },
   "devDependencies": {
     "gulp-sourcemaps": "^1.2.8",
