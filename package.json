@@ -32,8 +32,12 @@
     "pleeease": "^3.2.0"
   },
   "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
     "gulp-sourcemaps": "^1.2.8",
-    "mocha": "*"
+    "mocha": "*",
+    "should": "^5.2.0",
+    "stream-assert": "^2.0.2"
   },
   "readmeFilename": "readme.md"
 }
