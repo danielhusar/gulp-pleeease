@@ -1,36 +1,48 @@
 'use strict';
 
-var through = require('through2');
-var gutil = require('gulp-util');
-var pleeease = require('pleeease');
+var path           = require('path');
+var gutil          = require('gulp-util');
+var through        = require('through2');
+var pleeease       = require('pleeease');
 var applySourceMap = require('vinyl-sourcemaps-apply');
+
+var PLUGIN_NAME = 'gulp-pleeease';
 
 module.exports = function (opts) {
   opts = opts ? opts : {};
 
-  return through.obj(function (file, enc, cb) {
+  function bufferContents (file, enc, cb) {
+
+    var outFile = opts.out || file.relative;
+
     if (file.isNull()) {
       cb(null, file);
       return;
     }
 
     if (file.isStream()) {
-      cb(new gutil.PluginError('gulp-pleeease', 'Streaming not supported'));
+      cb(new gutil.PluginError(PLUGIN_NAME, 'Streaming not supported'));
       return;
     }
 
     try {
       if (file.sourceMap) {
         opts.sourcemaps = {
-          from : file.relative || file.path,
           map : {
+            inline: false,
             annotation: false
           }
         };
       }
+      if (opts.sourcemaps) {
+        opts.sourcemaps.from = file.relative;
+        opts.sourcemaps.to   = outFile;
+      }
 
       var result = pleeease.process(file.contents.toString(), opts);
+
       file.contents = new Buffer(result.css || result);
+      file.path = path.join(file.base, outFile);
       if (file.sourceMap && result.map) {
         applySourceMap(file, result.map.toString());
       }
@@ -38,9 +50,12 @@ module.exports = function (opts) {
       cb(null, file);
 
     } catch (err) {
-      cb(new gutil.PluginError('gulp-pleeease', err, {fileName: file.path}));
-      this.emit('error', new gutil.PluginError('gulp-pleeease', err));
+      cb(new gutil.PluginError(PLUGIN_NAME, err, {fileName: file.path}));
+      this.emit('error', new gutil.PluginError(PLUGIN_NAME, err));
     }
 
-  });
+  }
+
+  return through.obj(bufferContents);
+
 };
