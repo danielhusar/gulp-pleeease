@@ -191,7 +191,7 @@ describe('gulp-pleeease', function () {
           }))
           .pipe(assert.second(function (d) {
             // file
-            var css = d.contents.toString();
+            var css = d.contents.toString().replace(/\n/gi, '');
             css.should.endWith('\/*# sourceMappingURL=out.css.map *\/');
           }))
           .pipe(assert.end(done));
@@ -203,7 +203,7 @@ describe('gulp-pleeease', function () {
 
       var map = {
         sources: ['test/fixtures/_import.scss', 'test/fixtures/pre.scss'],
-        mappings: 'AAAA,QACE,UAAA,CAAA,ACCF,GADQ,SAAA,CAAA',
+        mappings: 'AAAA,QACE,UAAY,CADL,ACET,GACE,SAFS,CACP',
         file: 'out.css',
         sourcesContent: ['.import {\n  color: blue;\n}','@import \'_import.scss\';\n$color: red;\n.e {\n  color: $color;\n}']
       };
@@ -245,7 +245,7 @@ describe('gulp-pleeease', function () {
           }))
           .pipe(assert.second(function (d) {
             // file
-            var css = d.contents.toString();
+            var css = d.contents.toString().replace(/\n/gi, '');
             css.should.endWith('\/*# sourceMappingURL=out.css.map *\/');
           }))
           .pipe(assert.end(done));

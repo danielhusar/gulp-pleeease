@@ -39,15 +39,15 @@ module.exports = function (opts) {
         opts.sourcemaps.to   = outFile;
       }
 
-      var result = pleeease.process(file.contents.toString(), opts);
+      pleeease.process(file.contents.toString(), opts).then(function (result) {
+        file.contents = new Buffer(result.css || result);
+        file.path = path.join(file.base, outFile);
+        if (file.sourceMap && result.map) {
+          applySourceMap(file, result.map.toString());
+        }
 
-      file.contents = new Buffer(result.css || result);
-      file.path = path.join(file.base, outFile);
-      if (file.sourceMap && result.map) {
-        applySourceMap(file, result.map.toString());
-      }
-
-      cb(null, file);
+        cb(null, file);
+      });
 
     } catch (err) {
       cb(new gutil.PluginError(PLUGIN_NAME, err, {fileName: file.path}));

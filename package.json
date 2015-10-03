@@ -28,12 +28,12 @@
   "dependencies": {
     "gulp-util": "^3.0.1",
     "vinyl-sourcemaps-apply": "^0.1.4",
-    "through2": "^0.6.3",
-    "pleeease": "^3.2.0"
+    "through2": "^2.0.0",
+    "pleeease": "^4.0.1"
   },
   "devDependencies": {
     "gulp": "^3.8.11",
-    "gulp-concat": "^2.5.2",
+    "gulp-concat": "^2.6.0",
     "gulp-sourcemaps": "^1.2.8",
     "mocha": "*",
     "should": "^5.2.0",
