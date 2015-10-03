@@ -1,6 +1,6 @@
 {
   "name": "gulp-pleeease",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "description": "Postprocess CSS with ease.",
   "license": "MIT",
   "repository": "danielhusar/gulp-pleeease",
@@ -10,7 +10,7 @@
     "url": "https://github.com/danielhusar"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4.0.0"
   },
   "scripts": {
     "test": "mocha -R spec"
