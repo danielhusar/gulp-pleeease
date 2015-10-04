@@ -47,13 +47,16 @@ module.exports = function (opts) {
         }
 
         cb(null, file);
-      });
+      }, error);
 
     } catch (err) {
+      error(err);
+    }
+
+    function error (err) {
       cb(new gutil.PluginError(PLUGIN_NAME, err, {fileName: file.path}));
       this.emit('error', new gutil.PluginError(PLUGIN_NAME, err));
     }
-
   }
 
   return through.obj(bufferContents);
