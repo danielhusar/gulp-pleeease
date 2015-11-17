@@ -14,8 +14,7 @@ module.exports = function (opts) {
   function bufferContents (file, enc, cb) {
 
     var outFile = opts.out || file.relative;
-
-    if (file.isNull()) {
+    if (file.isNull() || !file.contents.toString()) {
       cb(null, file);
       return;
     }
