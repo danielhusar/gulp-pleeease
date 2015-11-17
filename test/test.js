@@ -203,7 +203,7 @@ describe('gulp-pleeease', function () {
 
       var map = {
         sources: ['test/fixtures/_import.scss', 'test/fixtures/pre.scss'],
-        mappings: 'AAAA,QACE,UAAY,CADL,ACET,GACE,SAFS,CACP',
+        mappings: 'AAAA,QACE,UAAY,CACb,ACAD,GACE,SAFS,CAGV',
         file: 'out.css',
         sourcesContent: ['.import {\n  color: blue;\n}','@import \'_import.scss\';\n$color: red;\n.e {\n  color: $color;\n}']
       };
@@ -253,6 +253,14 @@ describe('gulp-pleeease', function () {
 
     });
 
+  });
+
+  describe('empty file', function () {
+    it('passing empty file get the callback', function (done) {
+      gulp.src(fixtures('empty.css'), {base: '.'})
+        .pipe(pleeease())
+        .pipe(assert.end(done));
+    });
   });
 
 });
